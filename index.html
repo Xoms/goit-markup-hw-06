@@ -9,6 +9,64 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <!--Modal form-->
+    <div class="backdrop is-hidden">
+        <form action="#" class="modal-form">
+        
+            <button class="modal-form__btn-close">
+                <svg class="icon-close">
+                    <use href="./images/sprite.svg#icon-close-desktop"></use>
+                </svg>
+            </button>
+    
+            <b class="modal-form__action-text">
+                Оставьте свои данные, мы вам перезвоним
+            </b>
+            
+            <div class="modal-form__inner-container">                
+                <input class="modal-form__input modal-form__name" id="modalName" 
+                type="text" name="modalName">
+                <label for="modalName" class="modal-form__label
+                modal-form__label--name">Имя</label>
+            </div>
+    
+            <div class="modal-form__inner-container">
+                <input class="modal-form__input modal-form__phone" id="modalPhone" 
+                type="tel" name="modalPhone">
+                <label for="modalName" class="modal-form__label
+                modal-form__label--phone">Телефон</label>
+            </div>
+    
+            <div class="modal-form__inner-container">
+                <input class="modal-form__input modal-form__email" id="modalEmail" 
+                type="email" name="modalEmail">
+                <label for="modalName" class="modal-form__label
+                modal-form__label--email">Почта</label>
+            </div>
+    
+            <div class="modal-form__inner-container">
+                <textarea class="modal-form__input modal-form__comment" name="modalComment" 
+                id="modalComment" cols="30" rows="10"></textarea>
+                <label for="modalComment" class="modal-form__label 
+                modal-form__label--comment">Комментарий</label>
+            </div>
+    
+            <input class="modal-form__license" type="checkbox" 
+            name="modalLicense" id="modalLicense">
+            <label for="modalLicense" class="modal-form__label-license">
+                Соглашаюсь с рассылкой и принимаю 
+                <a class="license-agreement" href="">Условия договора</a>
+            </label>
+    
+            <button class="modal-form__btn-send btn main-btn" type="submit">
+                Отправить
+            </button>
+    
+    
+        </form>
+    </div>
+    
+
     <!--Top Menu-->
     <header class="header">           
 
@@ -462,9 +520,29 @@
                     </li>
                 </ul>
             </div>
+            <form action="#">
+                <b class="footer__action-text">
+                    Подпишись на рассылку
+                </b>
+                <div class="subscription-form__controls">
+
+                    <input type="email" id="subscription-form__email-input"
+                     class="subscription-form__email-input">
+                     <label class="subscription-form__email-label" 
+                     for="subscription-form__email-input">Email</label>
+
+                    <button class="subscription-form__btn btn main-btn">
+                        <span>Подписаться</span>
+                        <svg class="icon-send">
+                            <use href="./images/sprite.svg#icon-send"></use>
+                        </svg>                    
+                    </button>
+                </div>
+            </form>
         </div>
         
     </footer>
 
+    <script src="./js/modalForm.js"></script>
 </body>
 </html>

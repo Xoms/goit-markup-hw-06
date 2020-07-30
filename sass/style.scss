@@ -1,4 +1,4 @@
-@import "fonts.scss";
+@import "./fonts.scss";
 
 :root{
     //Акцентнтый цвет
@@ -31,9 +31,183 @@
 
     //Портфолио рамка проекта #EEEEEE
     --item-border: #EEEEEE;
-
 }
 
+/* MODAL FORM*/
+.is-hidden {
+    opacity: 0;
+    //visibility:hidden;
+    pointer-events: none;
+}
+.backdrop {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:100;
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.icon-close {
+    height: 18px;
+    width: 18px;
+    fill: currentColor;
+}
+
+.modal-form{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);    
+    padding: 40px;
+
+    z-index:100;
+
+    color: var(--secondary-text);
+    font-family:"Roboto-Normal";
+    background-color: var(--main-bg);
+
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 
+    0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    
+    &__btn-close{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        min-height: 30px;
+        min-width: 30px;
+        display: flex;
+        align-items: center; 
+        justify-content: center;   
+        
+
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        
+        background-color: var(--main-bg);
+        color: var(--main-text);
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,&:focus{
+            outline: none;
+            color: var(--accent);
+
+            transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    &__action-text{
+        display: block;
+        margin-bottom: 30px;
+
+        font-style: normal;
+        font-family: "Roboto-Bold", sans-serif;
+        font-size: 20px;
+        line-height: 1.15;        
+    }
+    &__inner-container{
+        position: relative;
+        &:not(:last-child){
+            margin-bottom: 28px;
+        }
+        &:last-child{
+            margin-bottom: 20px;
+        }
+    }
+    &__input{        
+        width:100%;
+        height: 40px;
+
+        border: 1px solid rgba(33, 33, 33, 0.2);
+        border-radius: 4px;
+
+        transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover, &:focus {
+            outline: none;
+            border-color: var(--accent);
+
+            transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        &:hover + .modal-form__label,
+        &:focus + .modal-form__label {
+            top: -4px;
+            left: 16px;
+            color: var(--accent);
+            transform: translate(0, -100%);
+            
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+    &__label {
+        position: absolute;
+        top:50%;
+        left: 42px;
+        transform: translate(0, -50%);
+        height: 14px;
+
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.01em;
+
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__comment{
+        resize:none;
+        height: 120px;
+    }
+    &__label--comment{
+        top:12px;
+        left:16px;
+    }
+
+
+    
+
+    &__license {
+         position:fixed;
+         visibility: hidden;
+         pointer-events: none;
+    }
+    &__license:checked + &__label-license::before{
+        background-image: var(--accent);
+        color:var(--light-text);
+    }
+
+    &__btn-send {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 56px;
+        padding-right: 55px;
+
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover, &:focus {
+            background-color: #188CE8;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+}
+
+
+.license-agreement{
+    font-family: "Roboto-Normal", sans-serif;
+    font-size: 14px;
+    line-height: 1.714;
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+/*Modal form end*/
 
 /*common*/
 html {
@@ -51,6 +225,7 @@ body{
 
 h1,h2,h3,p {
     margin: 0;
+    pointer-events: none;
 }
 
 a{
@@ -74,6 +249,8 @@ a:hover {
     font-family: "Roboto-Medium", sans-serif;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover, &:focus {
+        outline:none;
+        border:none;
         color: var(--accent);
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }       
@@ -108,6 +285,9 @@ a:hover {
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);    
 
     &:hover, &:focus{
+        outline:none;
+        border:none;
+
         color: var(--light-text);
         background-color: var(--accent);
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -141,6 +321,8 @@ a:hover {
     border: none;
     border-radius: 4px;
     &:hover,&:focus {
+        outline:none;
+        border:none;
         cursor: pointer;
     }
     
@@ -408,7 +590,9 @@ a:hover {
         color: var(--social-links);
 
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        &:hover{
+        &:hover, &:focus{
+            outline: none;
+            border: none; 
             color: var(--accent);
             border: 1px solid var(--accent);
             transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -459,10 +643,67 @@ a:hover {
         line-height: 1.14;        
     }
 
+    &__social-links{
+        margin-right: 94px;
+    }
+
     &__social-link{
         color: var(--light-text); 
         background-color: var(--footer-social-bg);       
     }
+}
+.subscription-form{
+    &__controls{
+        display: flex;
+        position: relative;
+    }
+    &__email-label{
+        position: absolute;
+        top: 15px;
+        left: 16px;
+        
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &__email-input {
+        margin-right: 12px;
+        height: 50px;
+        width: 358px;
+
+        color:var(--light-text);
+        font-family: "roboto-Normal", sans-serif;
+        font-size: 16px;
+
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+        border-radius: 4px;
+        background-color: transparent;
+
+        &:hover + .subscription-form__email-label,
+        &:focus + .subscription-form__email-label {
+            color: var(--accent);
+            top:-20px;
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);      
+        }
+        &:hover, &:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+    }
+
+    &__btn{
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 29px;
+        padding-right: 28px;
+    }
+}
+.icon-send {
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }
 
 /*PORTFOLIO*/
@@ -492,11 +733,14 @@ a:hover {
         .filters__radio-btn:checked + &, &:hover, &:focus{
             cursor: pointer;
             outline: none;
+
             background-color: var(--accent);
             color:var(--light-text);
+
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12),
              0px 1px 2px rgba(0, 0, 0, 0.08), 
              0px 3px 1px rgba(0, 0, 0, 0.1);
+
             transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -514,6 +758,7 @@ a:hover {
     &__item{
         width: 370px;
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);        
+        
         &:hover, &:focus{
             box-sizing: border-box;
             box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 
@@ -540,10 +785,10 @@ a:hover {
             height: 0;            
             width: 100%;
             bottom: 0;
-            padding: 0;           
+            padding: 0; 
 
             transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: var(--accent);
+            background-color: rgba(33, 150, 243, 0.9);;
             color: var(--light-text);
 
             font-family: "Roboto-Normal", sans-serif;
