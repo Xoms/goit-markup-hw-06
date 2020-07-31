@@ -72,12 +72,6 @@ Raleway bold*/
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.icon-close {
-  height: 18px;
-  width: 18px;
-  fill: currentColor;
-}
-
 .modal-form {
   position: absolute;
   top: 50%;
@@ -120,8 +114,12 @@ Raleway bold*/
 .modal-form__btn-close:hover, .modal-form__btn-close:focus {
   outline: none;
   color: var(--accent);
-  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form__icon-close {
+  height: 18px;
+  width: 18px;
+  fill: currentColor;
 }
 
 .modal-form__action-text {
@@ -133,15 +131,15 @@ Raleway bold*/
   line-height: 1.15;
 }
 
-.modal-form__inner-container {
+.modal-form__input-container {
   position: relative;
 }
 
-.modal-form__inner-container:not(:last-child) {
+.modal-form__input-container:not(:last-child) {
   margin-bottom: 28px;
 }
 
-.modal-form__inner-container:last-child {
+.modal-form__input-container:last-child {
   margin-bottom: 20px;
 }
 
@@ -157,54 +155,32 @@ Raleway bold*/
 .modal-form__input:hover, .modal-form__input:focus {
   outline: none;
   border-color: var(--accent);
-  -webkit-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form__input:hover + .modal-form__label,
 .modal-form__input:focus + .modal-form__label {
-  top: -4px;
-  left: 16px;
   color: var(--accent);
-  -webkit-transform: translate(0, -100%);
-          transform: translate(0, -100%);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: translate(-26px, -200%);
+          transform: translate(-26px, -200%);
 }
 
 .modal-form__label {
   position: absolute;
-  top: 50%;
+  top: 12px;
   left: 42px;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
   height: 14px;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form__comment {
   resize: none;
   height: 120px;
-}
-
-.modal-form__label--comment {
-  top: 12px;
-  left: 16px;
-}
-
-.modal-form__license {
-  position: fixed;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.modal-form__license:checked + .modal-form__label-license::before {
-  background-image: var(--accent);
-  color: var(--light-text);
 }
 
 .modal-form__btn-send {
@@ -214,19 +190,45 @@ Raleway bold*/
   padding-bottom: 10px;
   padding-left: 56px;
   padding-right: 55px;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form__btn-send:hover, .modal-form__btn-send:focus {
   background-color: #188CE8;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .license-agreement {
+  margin-bottom: 30px;
+}
+
+.license-agreement__checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.license-agreement__label:hover {
+  cursor: pointer;
+}
+
+.license-agreement__label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/icons/license-checkbox.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.license-agreement__checkbox:checked + .license-agreement__label::before {
+  background-image: url("../images/icons/license-checkbox-checked.svg");
+}
+
+.license-agreement__link {
   font-family: "Roboto-Normal", sans-serif;
   font-size: 14px;
   line-height: 1.714;
@@ -287,8 +289,6 @@ a:hover {
   outline: none;
   border: none;
   color: var(--accent);
-  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -326,8 +326,8 @@ a:hover {
   border-radius: 50%;
   background-color: var(--main-bg);
   color: var(--social-links);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover, .social-link:focus {
@@ -335,8 +335,6 @@ a:hover {
   border: none;
   color: var(--light-text);
   background-color: var(--accent);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link__icon {
@@ -662,17 +660,14 @@ a:hover {
   height: 90px;
   border: 1px solid var(--social-links);
   color: var(--social-links);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients__link:hover, .clients__link:focus {
   outline: none;
-  border: none;
   color: var(--accent);
-  border: 1px solid var(--accent);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: var(--accent);
 }
 
 .clients__logo {
@@ -746,8 +741,10 @@ a:hover {
   position: absolute;
   top: 15px;
   left: 16px;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscription-form__email-input {
@@ -762,14 +759,15 @@ a:hover {
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
   background-color: transparent;
+  -webkit-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .subscription-form__email-input:hover + .subscription-form__email-label,
 .subscription-form__email-input:focus + .subscription-form__email-label {
   color: var(--accent);
-  top: -20px;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
 }
 
 .subscription-form__email-input:hover, .subscription-form__email-input:focus {
@@ -822,8 +820,8 @@ a:hover {
   font-family: "Roboto-Medium", sans-serif;
   line-height: 1.625;
   background-color: var(--secondary-bg);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters__radio-btn:checked + .filters__btn, .filters__btn:hover, .filters__btn:focus {
@@ -833,8 +831,6 @@ a:hover {
   color: var(--light-text);
   -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 3px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 3px 1px rgba(0, 0, 0, 0.1);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters__btn:not(:last-child) {
@@ -851,17 +847,15 @@ a:hover {
 
 .projects__item {
   width: 370px;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects__item:hover, .projects__item:focus {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   -webkit-box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
           box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects__item:not(:nth-child(3n)) {
@@ -883,8 +877,8 @@ a:hover {
   width: 100%;
   bottom: 0;
   padding: 0;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1), padding 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1), padding 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(33, 150, 243, 0.9);
   color: var(--light-text);
   font-family: "Roboto-Normal", sans-serif;
@@ -896,8 +890,6 @@ a:hover {
 .projects__item:focus .projects__item-description {
   height: 100%;
   padding: 63px 24px;
-  -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects__item-img {
