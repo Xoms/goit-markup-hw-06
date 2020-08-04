@@ -23,25 +23,37 @@
                 Оставьте свои данные, мы вам перезвоним
             </b>
             
-            <div class="modal-form__input-container">                
+            <div class="modal-form__input-container">
+                        
                 <input class="modal-form__input modal-form__name" id="modalName" 
                 type="text" name="modalName">
                 <label for="modalName" class="modal-form__label
                 modal-form__label--name">Имя</label>
+                <svg class="modal-form__input-icon">
+                    <use href="./images/sprite.svg#icon-modal-name"></use>
+                </svg>  
             </div>
     
             <div class="modal-form__input-container">
+                
                 <input class="modal-form__input modal-form__phone" id="modalPhone" 
                 type="tel" name="modalPhone">
                 <label for="modalName" class="modal-form__label
                 modal-form__label--phone">Телефон</label>
+                <svg class="modal-form__input-icon">
+                    <use href="./images/sprite.svg#icon-modal-phone"></use>
+                </svg>
             </div>
     
             <div class="modal-form__input-container">
+               
                 <input class="modal-form__input modal-form__email" id="modalEmail" 
                 type="email" name="modalEmail">
                 <label for="modalName" class="modal-form__label
                 modal-form__label--email">Почта</label>
+                <svg class="modal-form__input-icon">
+                    <use href="./images/sprite.svg#icon-modal-email"></use>
+                </svg> 
             </div>
     
             <div class="modal-form__input-container">
@@ -53,14 +65,16 @@
     
             <div class="license-agreement">
                 <input class="license-agreement__checkbox" type="checkbox" 
-            name="modalLicense" id="modalLicense">
-            <!-- <svg class="maodal-form__license-checkbox-icon">
-                <use href=></use>
-            </svg> -->
-            <label for="modalLicense" class="license-agreement__label">
-                Соглашаюсь с рассылкой и принимаю 
-                <a class="license-agreement__link" href="">Условия договора</a>
-            </label>
+                name="modalLicense" id="modalLicense">
+                <!-- <svg class="maodal-form__license-checkbox-icon">
+                    <use href=></use>
+                </svg> -->
+                <label for="modalLicense" class="license-agreement__label">
+                    Соглашаюсь с рассылкой и принимаю 
+                    <a class="license-agreement__link" href="">
+                        Условия договора
+                    </a>
+                </label>
             </div>
             
     
@@ -532,10 +546,11 @@
                 </b>
                 <div class="subscription-form__controls">
 
-                    <input type="email" id="subscription-form__email-input"
-                     class="subscription-form__email-input">
-                     <label class="subscription-form__email-label" 
-                     for="subscription-form__email-input">Email</label>
+                    <input type="email" id="subscriptionFormEmail"
+                    class="subscription-form__email-input" name="subscriptionFormEmail">
+                    <label class="subscription-form__email-label" 
+                     for="subscriptionFormEmail">Email</label>
+                    
 
                     <button class="subscription-form__btn btn main-btn">
                         <span>Подписаться</span>
