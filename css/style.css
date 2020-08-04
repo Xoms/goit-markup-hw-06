@@ -589,7 +589,8 @@ a:hover {
 }
 
 .subscription-form__email-input:hover + .subscription-form__email-label,
-.subscription-form__email-input:focus + .subscription-form__email-label {
+.subscription-form__email-input:focus + .subscription-form__email-label,
+.subscription-form__email-input:not(:placeholder-shown) + .subscription-form__email-label {
   color: var(--accent);
   -webkit-transform: translateY(-150%);
           transform: translateY(-150%);
@@ -853,7 +854,8 @@ a:hover {
 }
 
 .modal-form__input:hover + .modal-form__label,
-.modal-form__input:focus + .modal-form__label {
+.modal-form__input:focus + .modal-form__label,
+.modal-form__input:not(:placeholder-shown) + .modal-form__label {
   color: var(--accent);
   -webkit-transform: translate(-26px, -200%);
           transform: translate(-26px, -200%);
