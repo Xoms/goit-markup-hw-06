@@ -1523,6 +1523,7 @@ a:hover {
 
 @media screen and (min-width: 1200px) {
   .modal-form {
+    min-width: 528px;
     top: 50%;
     -webkit-transform: translate(-50%, -50%) scale(1);
             transform: translate(-50%, -50%) scale(1);
